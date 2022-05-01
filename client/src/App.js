@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
+import NewVacation from './components/NewVacation';
 
 function App() {
   const [token, setToken] = useState();
@@ -14,11 +15,12 @@ function App() {
 
   return (
     <div className="App">
-
-      <Routes>
+    <Routes>
+      <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/registration" element={<Register/>} />
+      <Route path="/addvacation" element={<NewVacation/>}/>
     </Routes>
 
     </div>
