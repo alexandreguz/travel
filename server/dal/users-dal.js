@@ -22,7 +22,7 @@ const postNewRegistration = async (firstName, lastName, email, password, vacatio
         console.log(err)
         return result
     }
-}
+}  
 
 const login = async (body) => {
 

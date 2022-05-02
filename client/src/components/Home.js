@@ -21,10 +21,8 @@ const Home = () => {
 
             <h3>Home</h3>
             <Vacations/>
-
-            <NewVacation />
             <nav>
-                <Link to="/">Vacations</Link>
+                <Link to="/addvacation">create a new vacation</Link>
             </nav>
         </div>
 
