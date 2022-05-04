@@ -18,12 +18,10 @@ const Home = () => {
 
     return (
         <div>
-
-            <h3>Home</h3>
             <Vacations/>
-            <nav>
+            {/* <nav>
                 <Link to="/addvacation">create a new vacation</Link>
-            </nav>
+            </nav> */}
         </div>
 
 

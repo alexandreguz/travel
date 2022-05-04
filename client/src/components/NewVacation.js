@@ -1,6 +1,10 @@
 import { useState } from "react"
+import { Navigate, useNavigate } from "react-router-dom";
+
 
 const NewVacation = () => {
+    const navigate = useNavigate()
+
     const [newVacation, setNewVacation] = useState({
         discription: '',
         destiny: '',
@@ -59,18 +63,23 @@ const NewVacation = () => {
                 //     console.log('err')
                 //     console.log(err)
                 // })
+            navigate("/home")
     }
+
+    
 
 
 
     return (
-        <div>
-            Add Vacation
+        <div className="createVacationPage">
+            
             <br/>
             <br/>
-            <label>Discription:</label>
+            <form className="formContainer">
+                <label>Discription:</label>
             <br/>
             <input type='text' 
+            id="inputCreateVacation"
             required
             onChange = {(e) => {handleChange(e, "discription" )}}
             value={newVacation.discription}
@@ -79,6 +88,7 @@ const NewVacation = () => {
             <label>Destiny:</label>
             <br/>
             <input type='text'
+            id="inputCreateVacation"
             required
             onChange = {(e) => {handleChange(e, "destiny" )}}
             value={newVacation.destiny}
@@ -87,6 +97,7 @@ const NewVacation = () => {
             <label>From Day:</label>
             <br/>
             <input type='date' 
+            id="inputCreateVacation"
             required
             onChange = {(e) => {handleChange(e, "fromDay" )}}
             value={newVacation.fromDay}
@@ -95,6 +106,7 @@ const NewVacation = () => {
             <label>To Day:</label>
             <br/>
             <input type='date'
+            id="inputCreateVacation"
             required
             onChange = {(e) => {handleChange(e, "untilDay" )}}
             value={newVacation.untilDay}
@@ -103,12 +115,16 @@ const NewVacation = () => {
             <label>Price:</label>
             <br/>
             <input type='number'
+            id="inputCreateVacation"
             required
             onChange = {(e) => {handleChange(e, "price" )}}
             value={newVacation.price}
             />
             <br/>
             <button onClick={handleSubmit}>Add</button>
+            </form>    
+
+            
         </div>
     )
 }

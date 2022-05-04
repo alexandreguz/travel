@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Vacations = () => {
     const [vacations, setVacations] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch('http://localhost:3001/api/vacations')
@@ -12,9 +14,9 @@ const Vacations = () => {
     }, [])
 
     return (
-        <div>
+        <div className="cards">
             {vacations.map(vacation => (
-                <div className="vacation" key={vacation.vacationID}>
+                <div className="vacation" key={vacation.vacationID} onClick={() => navigate(`/editvacation/${vacation.vacationID}`)}>
                     <h2 className="title">{vacation.discription}</h2>
                     <h3 className="body">{vacation.destiny}</h3>
                     <h4 className="body">from: {vacation.fromDay}</h4> 

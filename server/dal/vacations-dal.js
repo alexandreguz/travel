@@ -42,9 +42,31 @@ import connection from '../db.js'
         }
     }    
 
+    const getById = async (id) => {
+        let result = {
+            success: false, 
+            data: null
+        }
+
+        try {
+            let res  = await connection.promise().query(
+                `SELECT * FROM vacations WHERE vacationID = ${id}`
+            ) 
+            result.success = true
+            result.data = res[0]
+            return result
+        } 
+        catch (err) {
+            result.success = true
+            result.data = err
+            return result
+        }
+    }
+
 export default{
     addVacation,
-    getAll
+    getAll,
+    getById
 }
 
 
