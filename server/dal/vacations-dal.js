@@ -63,10 +63,44 @@ import connection from '../db.js'
         }
     }
 
+    const updateVacation = async (body) => {
+                console.log("body") 
+                console.log(body.vacationId) 
+                console.log(body)
+        let result = {
+            success: false, 
+            data: null
+        }
+        try {
+            let res  = await connection.promise().query(
+
+                
+
+                `UPDATE vacations
+                SET discription = '${body.discription}', destiny= '${body.destiny}', fromDay = '${body.fromDay}', untilDay = '${body.untilDay}', price = ${body.price}
+                WHERE vacationID = ${body.vacationID};`
+            
+            ) 
+
+            result.success = true
+            result.data = res[0]
+            return result
+            
+        } catch (err) {
+            result.success = false
+            result.data = err
+            console.log(err)
+            return result
+        }
+    }    
+
+    
+
 export default{
     addVacation,
     getAll,
-    getById
+    getById,
+    updateVacation
 }
 
 

@@ -18,7 +18,7 @@ const EditVacation = () => {
             <div className="leftSide">
                 <div className="vacation" id="individual">
                 <div className="title">{vacationObject.discription}</div>
-                <div className="body">{vacationObject.discription}</div>
+                <div className="body">{vacationObject.destiny}</div>
                 <div className="body">{vacationObject.fromDay}</div>
                 <div className="body">{vacationObject.untilDay}</div>
                 <div className="footer">{vacationObject.price}</div>
