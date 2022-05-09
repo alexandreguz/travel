@@ -1,15 +1,27 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
+import UpdateVacations from "./UpdateVacations";
 
 const EditVacation = () => {
     let {id} = useParams();
     const [vacationObject, setVacationObject] = useState({})
+    // const [description, setDescription] = useState("")
+
+
+
+    // -----------
+    // const editedVacation = (editedVacation) => {
+    //     console.log(editedVacation)
+    //     setVacationObject(editedVacation)
+    // }
+
+    // ----------------
 
     useEffect(() => {
         fetch(`http://localhost:3001/api/vacations/${id}`)
         .then(res => res.json())
         .then(data => { console.log(data.data[0])
-            setVacationObject(data.data[0])
+            setVacationObject({...data.data[0]})
         })    
     },[])
 
@@ -26,7 +38,7 @@ const EditVacation = () => {
                 
             </div>
             <div className="rightSide">
-                here we edit
+                {/* <UpdateVacations vacationObject={vacationObject} /> */}
             </div>
 
         </div>
