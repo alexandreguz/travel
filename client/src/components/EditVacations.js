@@ -5,17 +5,6 @@ import UpdateVacations from "./UpdateVacations";
 const EditVacation = () => {
     let {id} = useParams();
     const [vacationObject, setVacationObject] = useState({})
-    // const [description, setDescription] = useState("")
-
-
-
-    // -----------
-    // const editedVacation = (editedVacation) => {
-    //     console.log(editedVacation)
-    //     setVacationObject(editedVacation)
-    // }
-
-    // ----------------
 
     useEffect(() => {
         fetch(`http://localhost:3001/api/vacations/${id}`)
@@ -24,12 +13,20 @@ const EditVacation = () => {
             setVacationObject({...data.data[0]})
         })    
     },[])
+    
+    const [changeVacationObject, setChangeVacationObject] = useState(vacationObject)
+    const HandleChangeVacationObject = () => {
+// codigo aqui para editar
+    }
 
     return (
         <div className="vacationPage">
             <div className="leftSide">
                 <div className="vacation" id="individual">
-                <div className="title">{vacationObject.discription}</div>
+                    
+                <div className="title" onClick={HandleChangeVacationObject}>{vacationObject.discription}</div>
+
+
                 <div className="body">{vacationObject.destiny}</div>
                 <div className="body">{vacationObject.fromDay}</div>
                 <div className="body">{vacationObject.untilDay}</div>
