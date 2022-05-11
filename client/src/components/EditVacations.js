@@ -13,31 +13,25 @@ const EditVacation = () => {
             setVacationObject({...data.data[0]})
         })    
     },[])
-    
-    const [changeVacationObject, setChangeVacationObject] = useState(vacationObject)
-    const HandleChangeVacationObject = () => {
-// codigo aqui para editar
-    }
 
     return (
         <div className="vacationPage">
             <div className="leftSide">
                 <div className="vacation" id="individual">
-                    
-                <div className="title" onClick={HandleChangeVacationObject}>{vacationObject.discription}</div>
-
-
+                <div className="title">{vacationObject.discription}</div>
                 <div className="body">{vacationObject.destiny}</div>
                 <div className="body">{vacationObject.fromDay}</div>
                 <div className="body">{vacationObject.untilDay}</div>
                 <div className="footer">{vacationObject.price}</div>
+                {/* <div className="footer">{vacationObject.vacationID}</div> */}
+
             </div>
-                
+                 
             </div>
             <div className="rightSide">
-                {/* <UpdateVacations vacationObject={vacationObject} /> */}
-            </div>
+            {vacationObject.destiny && <div><UpdateVacations vacationObject={vacationObject} /></div>} 
 
+            </div>
         </div>
 
     )

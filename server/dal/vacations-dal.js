@@ -74,11 +74,9 @@ import connection from '../db.js'
         try {
             let res  = await connection.promise().query(
 
-                
-
                 `UPDATE vacations
-                SET discription = '${body.discription}', destiny= '${body.destiny}', fromDay = '${body.fromDay}', untilDay = '${body.untilDay}', price = ${body.price}
-                WHERE vacationID = ${body.vacationID};`
+                SET discription = '${body.updateDiscription}', destiny= '${body.updateDestiny}', fromDay = '${body.updateFromDate}', untilDay = '${body.updateUntilDate}', price = ${body.updatePrice}
+                WHERE vacationID = ${body.updateVacationID};`
             
             ) 
 
@@ -93,8 +91,6 @@ import connection from '../db.js'
             return result
         }
     }    
-
-    
 
 export default{
     addVacation,
