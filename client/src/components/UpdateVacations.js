@@ -1,7 +1,10 @@
 import { useState } from "react"
+import { Navigate, useNavigate } from "react-router-dom";
 // import EditVacation from "./EditVacations"
 
 const UpdateVacations = ({vacationObject}) => {
+
+const navigate = useNavigate()
 
 const  updateVacationID = vacationObject.vacationID
 const [updateDiscription, setUpdateDiscription] = useState(`${vacationObject.discription}`)
@@ -28,8 +31,9 @@ const [updatePrice, setUpdatePrice] = useState(`${vacationObject.price}`)
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(updatedVacation)
         })
-        .then(() => {alert("edited")})
         .then(() => console.log(updatedVacation))
+
+        navigate("/home")
     }
 
     return (
