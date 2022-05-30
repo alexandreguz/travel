@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 async function loginUser(credentials) {
     return fetch('http://localhost:3001/api/login', {
@@ -23,7 +25,7 @@ const Login = ({setToken}) => {
           email,
           password
         });
-        setToken(token);
+        // setToken(token);
       }
 
     return (
@@ -40,12 +42,15 @@ const Login = ({setToken}) => {
 
             <label>Password:</label>
             <br/>
-            <input type='text' onChange={e => setPassword(e.target.value)}
+            <input type='password' onChange={e => setPassword(e.target.value)}
             required
             />
             <br/>
             <button>Login</button>
             </form>
+            <br/>
+            <Link to="/registration">Register Here</Link>
+
         </div>
     )
 }

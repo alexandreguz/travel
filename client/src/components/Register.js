@@ -77,7 +77,7 @@ const Register = () => {
             <br/>
             <label>Password:</label>
             <br/>
-            <input type='text' 
+            <input type='password' 
             required
             onChange = {(e) => {handleChange(e, "password")}}
             />
